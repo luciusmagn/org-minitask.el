@@ -7,9 +7,9 @@
 ;; Created: září 24, 2024
 ;; Modified: září 24, 2024
 ;; Version: 0.0.1
-;; Keywords: org-mode, tasks, productivity
+;; Keywords: convenience, files, outlines
 ;; Homepage: https://github.com/root/minitask
-;; Package-Requires: ((emacs "26.1") (org "9.3"))
+;; Package-Requires: ((emacs "26.1"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -18,12 +18,15 @@
 ;; org-minitask provides quick task management for org-mode.
 ;; It allows adding tasks to specific sections and filing completed tasks.
 ;;
+;; Create TODOs from anywhere, then file TODOs from anywhere to a single
+;; archive, optionally filing under week headings.
+;;
 ;;; Code:
 
 (require 'org)
 
 (defgroup org-minitask nil
-  "Quick task management for org-mode."
+  "Quick task management for 'org-mode'."
   :group 'org
   :prefix "org-minitask-")
 
