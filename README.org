@@ -1,0 +1,66 @@
+#+TITLE: org-minitask
+* org-minitask
+
+Quick task management for org-mode.
+
+** Description
+
+org-minitask provides a lightweight solution for quick task management within org-mode. It allows for easy creation of tasks and filing of completed tasks, streamlining your workflow.
+
+** Installation
+
+To install org-minitask, add the following to your ~packages.el~:
+
+#+begin_src emacs-lisp
+(package! org-minitask.el :recipe
+  (:host github
+   :repo "luciusmagn/org-minitask.el"))
+#+end_src
+
+** Configuration
+
+Add the following to your ~config.el~ or equivalent configuration file:
+
+#+begin_src emacs-lisp
+(use-package org-minitask
+  :config
+  (setq org-minitask-file "~/org/roam-landing.org"
+        org-minitask-todo-heading '("TASKS" "OUTSTANDING")
+        org-minitask-done-file "~/org/roam-landing.org"
+        org-minitask-done-heading '("TASKS")))
+
+(map! :leader
+      (:prefix ("t" . "tasks")
+       :desc "Create task" "t" #'org-minitask-create
+       :desc "Finish and file task" "d" #'org-minitask-finish-and-file))
+#+end_src
+
+Adjust the file paths and headings according to your preferences.
+
+** Usage
+
+- To create a new task: ~SPC t t~ (or ~M-x org-minitask-create~)
+- To finish and file a task: ~SPC t d~ (or ~M-x org-minitask-finish-and-file~)
+
+** Customization
+
+You can customize the following variables:
+
+- ~org-minitask-file~: Main Org file for tasks
+- ~org-minitask-todo-heading~: Heading path for new TODOs
+- ~org-minitask-done-file~: File for completed TODOs (if different from main file)
+- ~org-minitask-done-heading~: Heading for completed TODOs
+- ~org-minitask-use-week-subheadings~: Use week subheadings for completed tasks
+- ~org-minitask-sunday-starts-week~: Set if Sunday starts the week
+
+** License
+
+[Your chosen license]
+
+** Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+** Support
+
+If you have any questions or issues, please open an issue on the GitHub repository.
